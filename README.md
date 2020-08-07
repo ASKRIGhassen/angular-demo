@@ -6,3 +6,6 @@ create new project:
 
 #install bootstrap 
  -> npm install --save bootstrap@3
+ 
+# add component from cli
+-> ng generate component servers
