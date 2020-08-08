@@ -16,9 +16,17 @@ class="form-control"
 </button>
 <!-- <p [innerText]="allowNewServer"></p> -->
 <p>{{serverCreatedStatus}}</p>
-<!--<app-server></app-server>-->
+<p *ngIf="serverCreated">New server was created {{serverName}}</p>
 <hr/>
 <input type="text" class="form-control" [(ngModel)]="userName">
 <p>{{userName}}</p>
 <button class="btn btn-primary" [disabled]="userNameIsEmpty()" (click)="onReset()">reset</button>
+<hr/>
+<app-server *ngFor="let server of servers"></app-server>
+
+<hr/>
+<button class="btn btn-primary"
+(click)="onClickDisplay()"
+>Display Details</button>
+<p *ngFor="let timeStmp of logs; let i = index" [ngStyle]="{background: getColor(i)}" [ngClass]="{online: i >= 4 }">{{i}} + {{timeStmp}}</p>
 
